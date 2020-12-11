@@ -1,0 +1,9 @@
+{
+  "name": "timetable-generator",
+  "version": "1.0.0",
+  "description": "Application for sheduling classes in UPML",
+  "main": "index.js",
+  "author": "dm1sh <me@dmitriy.icu>",
+  "license": "MIT",
+  "private": true
+}
