@@ -13,3 +13,6 @@ yarn-error.log*
 .env.production.local
 
 .vscode/
+
+componentName.json
+localName.json

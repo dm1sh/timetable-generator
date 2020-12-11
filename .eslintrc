@@ -14,8 +14,8 @@
     }
   },
   "rules": {
-    "no-console": 0,
-    "prettier/prettier": 2
+    "no-console": "warn",
+    "prettier/prettier": "error"
   },
   "settings": {
     "react": {

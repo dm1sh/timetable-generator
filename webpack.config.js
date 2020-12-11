@@ -4,6 +4,10 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 
+const getScopedName = require("./utils/getScopedName.js");
+
+const isDev = process.env.NODE_ENV === "development";
+
 module.exports = {
   entry: "./src/index.tsx",
   target: "web",
@@ -23,7 +27,12 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              modules: isDev
+                ? { localIdentName: "[path]_[name]_[local]" }
+                : {
+                    getLocalIdent: (context, localIdentName, localName) =>
+                      getScopedName(context, localIdentName, localName),
+                  },
             },
           },
         ],
