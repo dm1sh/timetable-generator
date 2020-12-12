@@ -24,8 +24,6 @@ jobs:
 
       - name: Install packages
         uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: --frozen-lockfile
 
       - name: Run prettier
         uses: borales/actions-yarn@v2.0.0
