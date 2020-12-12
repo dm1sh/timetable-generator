@@ -1,7 +1,14 @@
 {
   "presets": [
-    ["@babel/preset-env", { "modules": false }],
+    ["@babel/preset-env",
+    	{
+        	"targets": 
+        	{
+				"node": "14"
+	       	}
+	    }
+	],
     "@babel/preset-react"
   ],
-  "plugins": ["react-hot-loader/babel"]
+  "plugins": ["@babel/plugin-proposal-class-properties"]
 }

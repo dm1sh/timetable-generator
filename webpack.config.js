@@ -8,10 +8,28 @@ const getScopedName = require("./utils/getScopedName.js");
 
 const isDev = process.env.NODE_ENV === "development";
 
+const plugins = [
+  new webpack.ProgressPlugin(),
+  new HtmlWebpackPlugin({
+    template: path.join(__dirname, "public", "index.html"),
+  }),
+]
+
+if (!isDev)
+{
+  plugins.push(
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    })
+  )
+}
+
 module.exports = {
   entry: "./src/index.tsx",
   target: "web",
-  devtool: "inline-source-map",
+  devtool: isDev ? "inline-source-map" : undefined,
   mode: "development",
   module: {
     rules: [
@@ -19,6 +37,13 @@ module.exports = {
         test: /\.tsx?$/,
         use: "ts-loader",
         include: path.resolve(__dirname, "src"),
+      },
+      {
+        test:/\.js$/,
+        include: /src/,
+        use:{
+          loader:"babel-loader"
+        }
       },
       {
         test: /\.css$/,
@@ -50,6 +75,9 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    minimize: true,
+  },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
@@ -62,13 +90,7 @@ module.exports = {
     compress: true,
     port: 3000,
   },
-  plugins: [
-    new ESLintPlugin(),
-    new webpack.ProgressPlugin(),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, "public", "index.html"),
-    }),
-  ],
+  plugins,
   stats: {
     reasons: true,
   },

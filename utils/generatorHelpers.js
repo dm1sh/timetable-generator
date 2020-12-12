@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 const getGeneratorDataPath = generatorIdentifier =>
-  path.resolve(__dirname, `meta/${generatorIdentifier}.json`);
+  path.resolve(__dirname, `${generatorIdentifier}.json`);
 
 const getGeneratorData = generatorIdentifier => {
   const path = getGeneratorDataPath(generatorIdentifier);
