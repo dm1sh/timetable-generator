@@ -1,0 +1,38 @@
+{
+  "days": [
+    {
+      "events": [
+        {
+          "time": 0,
+          "lessons": [0, 1, 2, 3, 4, 5]
+        },
+        {
+          "time": 1,
+          "lessons": [0, 1, 2, 3, 4, 5]
+        }
+      ],
+      "date": 5467546
+    },
+    {
+      "events": [
+        {
+          "lessons": [0, 1, 2, 3, 4, 5]
+        }
+      ],
+      "date": 5467546
+    }
+  ],
+  "cards": [
+    {
+      "subject": 3,
+      "room": 505,
+      "teacher": 1
+    }
+  ],
+  "subjects": [
+    {
+      "title": "Math",
+      "teachers": ["Popov", "somebody"]
+    }
+  ]
+}
