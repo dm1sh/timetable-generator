@@ -1,0 +1,38 @@
+.wrapper{
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar{
+    min-width: 18%;
+    max-width: 18%;
+    min-height: 100vh;
+    position: relative;
+    background-color: #ADB5BD;
+    transition: all 0.3s;
+}
+
+#sidebar{
+    margin-left: -18%;
+}
+
+#sidebar.active{
+    margin-left: 0px;
+}
+
+#sidebar-toggle{
+	position: absolute;
+	border-radius: 0;
+	top: 0;
+	left: 100%;
+}
+
+@media (max-width: 768px) {
+    #sidebar{
+        margin-left: -250px;
+    }
+    #sidebar.active{
+        margin-left: 0;
+    }
+}
