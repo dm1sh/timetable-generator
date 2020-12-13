@@ -2,7 +2,6 @@
 const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ESLintPlugin = require("eslint-webpack-plugin");
 
 const getScopedName = require("./utils/getScopedName.js");
 
@@ -13,17 +12,16 @@ const plugins = [
   new HtmlWebpackPlugin({
     template: path.join(__dirname, "public", "index.html"),
   }),
-]
+];
 
-if (!isDev)
-{
+if (!isDev) {
   plugins.push(
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
+      "process.env": {
+        NODE_ENV: JSON.stringify("production"),
+      },
     })
-  )
+  );
 }
 
 module.exports = {
@@ -39,11 +37,11 @@ module.exports = {
         include: path.resolve(__dirname, "src"),
       },
       {
-        test:/\.js$/,
+        test: /\.js$/,
         include: /src/,
-        use:{
-          loader:"babel-loader"
-        }
+        use: {
+          loader: "babel-loader",
+        },
       },
       {
         test: /\.css$/,
@@ -76,7 +74,7 @@ module.exports = {
     ],
   },
   optimization: {
-    minimize: true,
+    minimize: !isDev,
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
